@@ -1,0 +1,146 @@
+# LosSantos Barbershop - Cursor Rules
+
+## Project Context
+Premium barbershop website built with Next.js 15, TypeScript, Tailwind CSS, and shadcn/ui.
+
+## Code Style Guidelines
+
+### TypeScript
+- Use explicit types for function parameters and return values
+- Prefer interfaces over types for object definitions
+- Use const for immutable values
+
+### React Components
+- Use functional components with TypeScript
+- Export named components (not default for components)
+- Use React.forwardRef for components that accept refs
+
+### Tailwind CSS
+- Use Tailwind utility classes
+- Avoid inline styles
+- Use the `cn()` utility from `@/lib/utils` for conditional classes
+
+### Import Order
+1. React/Next.js imports
+2. Third-party libraries
+3. Local components (using @/ alias)
+4. Styles
+
+Example:
+```typescript
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+```
+
+## File Structure
+
+```
+app/                    → Next.js App Router pages
+components/ui/          → shadcn/ui components (primitives)
+components/             → Feature components
+lib/                    → Utilities and helpers
+public/                 → Static assets
+```
+
+## Component Guidelines
+
+### When Creating New Components
+1. Create in appropriate directory:
+   - UI primitives → `components/ui/`
+   - Features → `components/`
+2. Use TypeScript for props interface
+3. Export from `components/ui/index.ts` if UI component
+4. Include proper accessibility attributes
+
+### shadcn/ui Components
+- Install via: `npx shadcn@latest add [component-name]`
+- Automatically added to `components/ui/`
+- Customize in place (they're your components)
+
+## Styling Guidelines
+
+### Responsive Design
+- Mobile first approach
+- Use Tailwind breakpoints: `sm:`, `md:`, `lg:`, `xl:`, `2xl:`
+- Test on all screen sizes
+
+### Colors
+- Use CSS variables defined in `app/globals.css`
+- Format: `hsl(var(--color-name))`
+- Support both light and dark modes
+
+### Typography
+- Use Tailwind typography utilities
+- Maintain consistent hierarchy
+- Ensure readability on all backgrounds
+
+## Best Practices
+
+### Performance
+- Use Next.js Image component for images
+- Lazy load below-the-fold content
+- Minimize client-side JavaScript
+
+### SEO
+- Update metadata in layout.tsx
+- Use semantic HTML
+- Include alt text for images
+
+### Accessibility
+- Use proper ARIA labels
+- Ensure keyboard navigation
+- Maintain color contrast ratios
+
+## Common Patterns
+
+### Adding a New Section
+```typescript
+// components/services-section.tsx
+import { Button } from "@/components/ui/button";
+
+export function ServicesSection() {
+  return (
+    <section className="py-20">
+      {/* Content */}
+    </section>
+  );
+}
+```
+
+### Using the cn() Utility
+```typescript
+import { cn } from "@/lib/utils";
+
+<div className={cn(
+  "base-classes",
+  condition && "conditional-classes",
+  className
+)} />
+```
+
+### Adding shadcn Components
+```bash
+npx shadcn@latest add card
+npx shadcn@latest add dialog
+npx shadcn@latest add form
+```
+
+## Git Workflow
+- Commit often with clear messages
+- Don't commit node_modules or .next
+- Use .gitignore (already configured)
+
+## Deployment Checklist
+- [ ] Run `npm run build` successfully
+- [ ] Test in production mode
+- [ ] Update environment variables
+- [ ] Configure custom domain
+- [ ] Set up analytics
+
+## Resources
+- Next.js: https://nextjs.org/docs
+- Tailwind: https://tailwindcss.com/docs
+- shadcn/ui: https://ui.shadcn.com
+- TypeScript: https://www.typescriptlang.org/docs
+
