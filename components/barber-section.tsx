@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import React from "react";
@@ -41,10 +42,13 @@ export function BarberSection() {
             transition={{ duration: 0.6 }}
             className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border bg-secondary shadow-lg"
           >
-            <img
+            <Image
               src="/barber.jpg"
               alt="Fahed, Master Barber"
-              className="h-full w-full object-cover"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+              priority
             />
             <div className="absolute top-4 left-4 bg-background/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-2 border border-border">
               <Star className="h-4 w-4 text-amber-400 fill-amber-400" />

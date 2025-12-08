@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useRef } from "react";
 
@@ -65,10 +66,13 @@ export function ZoomParallax({ images }: ZoomParallaxProps) {
               } `}
             >
               <div className="relative h-[25vh] w-[25vw] rounded-2xl border border-border shadow-lg overflow-hidden bg-secondary">
-                <img
+                <Image
                   src={src || "/placeholder.svg"}
                   alt={alt || `Parallax image ${index + 1}`}
-                  className="h-full w-full object-cover"
+                  fill
+                  sizes="(max-width: 768px) 90vw, 40vw"
+                  className="object-cover"
+                  priority={index === 0}
                 />
               </div>
             </motion.div>

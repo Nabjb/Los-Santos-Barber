@@ -159,7 +159,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           isCenter ? "text-primary-foreground" : "text-foreground"
         )}
       >
-        "{testimonial.testimonial}"
+        {testimonial.testimonial}
       </h3>
 
       <p

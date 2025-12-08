@@ -120,7 +120,7 @@ export function HeroSection04() {
           className="md:mt-40 mt-10 px-2"
         >
           <p className="mx-auto max-w-2xl font-mono text-center text-sm font-medium tracking-wide md:text-base">
-            WE'RE A PREMIUM BARBERSHOP OFFERING
+            WE&apos;RE A PREMIUM BARBERSHOP OFFERING
             <br />
             TRADITIONAL GROOMING WITH A MODERN TWIST
             <br />
