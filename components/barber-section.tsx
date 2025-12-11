@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { Scissors, Star } from "lucide-react";
 import React from "react";
 
 export function BarberSection() {
@@ -34,22 +34,29 @@ export function BarberSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10 items-center">
+        <div className="md:max-w-5xl grid md:grid-cols-2 gap-8 md:gap-10 items-center bg-secondary/30 border border-border/60 rounded-2xl p-5 md:p-8 shadow-sm backdrop-blur mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border bg-secondary shadow-lg"
+            className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border-2 border-border bg-secondary shadow-lg"
           >
             <Image
               src="/barber.jpg"
               alt="Fahed, Master Barber"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
+              className="object-cover filter sepia contrast-110 brightness-95"
               priority
             />
+            <div className="pointer-events-none absolute inset-0 mix-blend-multiply opacity-15" style={{
+              backgroundImage: "radial-gradient(circle at 1px 1px, rgba(0,0,0,0.3) 1px, transparent 0)",
+              backgroundSize: "6px 6px"
+            }} />
+            <div className="absolute top-4 right-4 bg-background/85 backdrop-blur-sm px-3 py-2 rounded-full text-xs font-semibold border border-border shadow-sm">
+              Since 2015
+            </div>
             <div className="absolute top-4 left-4 bg-background/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-2 border border-border">
               <Star className="h-4 w-4 text-amber-400 fill-amber-400" />
               4.9 · 38 reviews
@@ -72,15 +79,16 @@ export function BarberSection() {
               </p>
             </div>
 
-            <div className="grid gap-3 text-sm md:text-base">
+            <div className="border-l-2 border-border/80 pl-4 space-y-3 text-sm md:text-base">
               <div className="flex items-center gap-3">
-                <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-xs font-semibold uppercase tracking-wide">
+                <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-[11px] font-semibold uppercase tracking-wide">
                   Languages
                 </span>
                 <span className="text-muted-foreground">English · Greek · Russian-friendly service</span>
               </div>
               <div className="flex items-center gap-3">
-                <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-xs font-semibold uppercase tracking-wide">
+                <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-[11px] font-semibold uppercase tracking-wide">
+                  <Scissors className="h-4 w-4" />
                   Specialties
                 </span>
                 <span className="text-muted-foreground">
@@ -88,7 +96,7 @@ export function BarberSection() {
                 </span>
               </div>
               <div className="flex items-center gap-3">
-                <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-xs font-semibold uppercase tracking-wide">
+                <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-[11px] font-semibold uppercase tracking-wide">
                   Booking
                 </span>
                 <span className="text-muted-foreground">
@@ -97,12 +105,14 @@ export function BarberSection() {
               </div>
             </div>
 
+            <div className="h-px border-t border-dashed border-border/70 my-1" />
+
             <div className="flex flex-wrap gap-2">
               {["Precision Cuts", "Beard Grooming", "Hot Towel Shave", "Premium Products"].map(
                 (tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs font-semibold uppercase tracking-wide"
+                    className="rounded-full border border-border bg-secondary/60 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide shadow-[2px_2px_0_rgba(0,0,0,0.25)]"
                   >
                     {tag}
                   </span>
@@ -110,18 +120,18 @@ export function BarberSection() {
               )}
             </div>
 
-            <div className="flex gap-3">
+            <div className="flex gap-3 flex-wrap">
               <a
                 href="#"
-                className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center justify-center rounded-md border-2 border-border bg-primary/90 px-5 py-3 text-sm font-semibold text-primary-foreground shadow-[3px_3px_0_rgba(0,0,0,0.35)] hover:bg-primary transition-colors"
               >
-                Book with Fahed
+                Book a Chair with Fahed
               </a>
               <a
                 href="#"
-                className="inline-flex items-center justify-center rounded-md border border-border px-5 py-3 text-sm font-semibold hover:border-primary/60 hover:text-primary transition-colors"
+                className="inline-flex items-center justify-center rounded-md border-2 border-dashed border-border px-5 py-3 text-sm font-semibold hover:border-primary/60 hover:text-primary transition-colors"
               >
-                View availability
+                See the Chair List
               </a>
             </div>
           </motion.div>

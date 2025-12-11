@@ -3,6 +3,8 @@ import { ServicesTimeline } from "@/components/services-timeline";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { ShowcaseSection } from "@/components/showcase-section";
 import { BarberSection } from "@/components/barber-section";
+import { LocationSection } from "@/components/location-section";
+import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
@@ -12,6 +14,8 @@ export default function Home() {
       <TestimonialsSection />
       <ShowcaseSection />
       <BarberSection />
+      <LocationSection />
+      <Footer />
     </main>
   );
 }
