@@ -2,7 +2,7 @@
 
 import { Clock, Droplet, Scissors, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const servicesData = [
   {
@@ -35,6 +35,17 @@ const servicesData = [
 ];
 
 export function ServicesTimeline() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <section className="relative py-20 md:py-32 overflow-hidden">
       {/* Grid Background */}
@@ -53,50 +64,44 @@ export function ServicesTimeline() {
 
       <div className="mx-auto max-w-7xl relative z-20 px-6">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          className="mb-16 md:mb-24"
-        >
-          <p className="text-sm uppercase tracking-wider text-muted-foreground mb-4">
-            PREMIUM SERVICES
-          </p>
-          <h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tight">
-            OUR SERVICES
-          </h2>
-          <p className="mt-4 text-base md:text-lg text-muted-foreground font-mono max-w-2xl">
-            Premium grooming tailored to every gentleman.
-          </p>
-        </motion.div>
+        {isMobile ? (
+          <div className="mb-16 md:mb-24">
+            <p className="text-sm uppercase tracking-wider text-muted-foreground mb-4">
+              PREMIUM SERVICES
+            </p>
+            <h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tight">
+              OUR SERVICES
+            </h2>
+            <p className="mt-4 text-base md:text-lg text-muted-foreground font-mono max-w-2xl">
+              Premium grooming tailored to every gentleman.
+            </p>
+          </div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="mb-16 md:mb-24"
+          >
+            <p className="text-sm uppercase tracking-wider text-muted-foreground mb-4">
+              PREMIUM SERVICES
+            </p>
+            <h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tight">
+              OUR SERVICES
+            </h2>
+            <p className="mt-4 text-base md:text-lg text-muted-foreground font-mono max-w-2xl">
+              Premium grooming tailored to every gentleman.
+            </p>
+          </motion.div>
+        )}
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {servicesData.map((service, index) => {
             const Icon = service.icon;
-            return (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ 
-                  duration: 0.4, 
-                  delay: index * 0.1,
-                  ease: "easeOut"
-                }}
-                whileHover={{ 
-                  y: -8, 
-                  transition: { duration: 0.2 } 
-                }}
-                className="group relative rounded-xl p-8 md:p-10 border-2 border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden"
-                style={{
-                  backgroundImage: `url(${service.backgroundImage})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
+            const cardContent = (
+              <>
                 {/* Dark Overlay */}
                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/70 transition-colors duration-300" />
 
@@ -130,6 +135,48 @@ export function ServicesTimeline() {
                     </span>
                   </div>
                 </div>
+              </>
+            );
+
+            if (isMobile) {
+              return (
+                <div
+                  key={service.title}
+                  className="group relative rounded-xl p-8 md:p-10 border-2 border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden"
+                  style={{
+                    backgroundImage: `url(${service.backgroundImage})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  {cardContent}
+                </div>
+              );
+            }
+
+            return (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ 
+                  duration: 0.4, 
+                  delay: index * 0.1,
+                  ease: "easeOut"
+                }}
+                whileHover={{ 
+                  y: -8, 
+                  transition: { duration: 0.2 } 
+                }}
+                className="group relative rounded-xl p-8 md:p-10 border-2 border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden"
+                style={{
+                  backgroundImage: `url(${service.backgroundImage})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
+                {cardContent}
               </motion.div>
             );
           })}
