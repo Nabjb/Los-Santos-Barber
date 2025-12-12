@@ -5,13 +5,13 @@ import React from "react";
 import { ZoomParallax } from "@/components/ui/zoom-parallax";
 
 const showcaseImages = [
-  { src: "/showcase1.jpg", alt: "Showcase 1" },
-  { src: "/showcase2.jpeg", alt: "Showcase 2" },
-  { src: "/showcase3.webp", alt: "Showcase 3" },
-  { src: "/showcase4.png", alt: "Showcase 4" },
-  { src: "/showcase5.jpg", alt: "Showcase 5" },
-  { src: "/showcase6.jpg", alt: "Showcase 6" },
-  { src: "/showcase7.webp", alt: "Showcase 7" },
+  { src: "/showcase8.jpeg", alt: "Showcase 8" },
+  { src: "/showcase9.jpeg", alt: "Showcase 9" },
+  { src: "/showcase10.jpeg", alt: "Showcase 10" },
+  { src: "/showcase11.jpeg", alt: "Showcase 11" },
+  { src: "/showcase12.jpeg", alt: "Showcase 12" },
+  { src: "/showcase13.jpeg", alt: "Showcase 13" },
+  { src: "/showcase14.jpeg", alt: "Showcase 14" },
 ];
 
 export function ShowcaseSection() {
