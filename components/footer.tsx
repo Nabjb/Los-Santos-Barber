@@ -30,7 +30,7 @@ export function Footer() {
                 Los Santos Barbershop
               </p>
               <p className="text-xs font-mono text-muted-foreground">
-                Est. 2015 · Nicosia
+                Est. 2023 · Nicosia
               </p>
             </div>
           </div>
@@ -42,14 +42,21 @@ export function Footer() {
               Book a Chair
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/lossantosbarberz/"
+              target="_blank"
+              rel="noreferrer"
               className="hover:text-primary transition-colors"
             >
               Instagram
             </a>
             <span>Βασιλίσσης Φρειδερίκης 27A, Nicosia 1035</span>
-            <span>+357 00 000 000</span>
-            <span>Tue–Fri 9:00–19:00 · Sat 9:00–17:00</span>
+            <a
+              href="tel:+35796008368"
+              className="hover:text-primary transition-colors"
+            >
+              +357 96008368
+            </a>
+            <span>Mon–Wed, Fri 9:00–19:00 · Sat 9:00–17:00 · Thu & Sun Closed</span>
           </div>
         </div>
         <div className="mt-6 text-xs font-mono text-muted-foreground">

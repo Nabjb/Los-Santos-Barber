@@ -32,7 +32,7 @@ export function LocationSection() {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3 mb-8">
           <div className="rounded-2xl border border-border bg-secondary/50 p-6 shadow-sm">
             <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-wide mb-3">
               <MapPin className="h-5 w-5" />
@@ -59,12 +59,24 @@ export function LocationSection() {
               Hours
             </div>
             <ul className="space-y-1 text-base">
-              <li className="flex justify-between text-muted-foreground">
+              <li className="flex justify-between">
                 <span>Mon</span>
+                <span>9:00 – 19:00</span>
+              </li>
+              <li className="flex justify-between">
+                <span>Tue</span>
+                <span>9:00 – 19:00</span>
+              </li>
+              <li className="flex justify-between">
+                <span>Wed</span>
+                <span>9:00 – 19:00</span>
+              </li>
+              <li className="flex justify-between text-muted-foreground">
+                <span>Thu</span>
                 <span>Closed</span>
               </li>
               <li className="flex justify-between">
-                <span>Tue – Fri</span>
+                <span>Fri</span>
                 <span>9:00 – 19:00</span>
               </li>
               <li className="flex justify-between">
@@ -88,7 +100,7 @@ export function LocationSection() {
             </div>
             <div className="space-y-3">
               <a
-                href="tel:+35700000000"
+                href="tel:+35796008368"
                 className="inline-flex items-center justify-center rounded-md border-2 border-border bg-primary/90 px-4 py-3 text-sm font-semibold text-primary-foreground shadow-[3px_3px_0_rgba(0,0,0,0.35)] hover:bg-primary transition-colors w-full"
               >
                 Call the Shop
@@ -99,11 +111,31 @@ export function LocationSection() {
               >
                 Book Online
               </a>
-              <p className="text-sm text-muted-foreground font-mono">
-                Instagram / DM: @LosSantosBarbers
-              </p>
+              <a
+                href="https://www.instagram.com/lossantosbarberz/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-sm text-muted-foreground font-mono hover:text-primary transition-colors"
+              >
+                Instagram / DM: @lossantosbarberz
+              </a>
             </div>
           </div>
+        </div>
+
+        {/* Google Maps Embed */}
+        <div className="mt-8 rounded-2xl border border-border overflow-hidden shadow-lg">
+          <iframe
+            src="https://www.google.com/maps?q=Βασιλίσσης+φρειδερίκης+27A+Nicosia+Pallouriotissa+1035&output=embed"
+            width="100%"
+            height="450"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="w-full"
+            title="Los Santos Barbershop Location"
+          />
         </div>
       </div>
     </section>

@@ -75,7 +75,7 @@ export function BarberSection() {
                 Crafting Signature Looks
               </h3>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                From classic cuts to modern fades, Fahed delivers sharp results with meticulous attention to detail. Known for premium beard grooming, hot towel shaves, and a welcoming chair-side experience.
+                From classic cuts to modern fades, Fahed delivers sharp results with meticulous attention to detail. Expert in both premium haircuts and beard grooming.
               </p>
             </div>
 
@@ -84,7 +84,7 @@ export function BarberSection() {
                 <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-[11px] font-semibold uppercase tracking-wide">
                   Languages
                 </span>
-                <span className="text-muted-foreground">English · Greek · Russian-friendly service</span>
+                <span className="text-muted-foreground">English · Greek · Arabic</span>
               </div>
               <div className="flex items-center gap-3">
                 <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-[11px] font-semibold uppercase tracking-wide">
@@ -92,7 +92,7 @@ export function BarberSection() {
                   Specialties
                 </span>
                 <span className="text-muted-foreground">
-                  Skin fades · Beard sculpting · Hot towel shaves · Kids & adults
+                  Skin fades · Beard sculpting · Kids & adults
                 </span>
               </div>
               <div className="flex items-center gap-3">
