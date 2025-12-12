@@ -94,7 +94,7 @@ export function LocationSection() {
                 Call the Shop
               </a>
               <a
-                href="#"
+                href="https://lossantosbarberz.setmore.com/"
                 className="inline-flex items-center justify-center rounded-md border-2 border-dashed border-border px-4 py-3 text-sm font-semibold hover:border-primary/60 hover:text-primary transition-colors w-full"
               >
                 Book Online

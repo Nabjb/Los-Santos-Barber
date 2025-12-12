@@ -36,7 +36,7 @@ export function Footer() {
           </div>
           <div className="flex flex-col md:items-end gap-2 text-sm font-mono text-muted-foreground">
             <a
-              href="#"
+              href="https://lossantosbarberz.setmore.com/"
               className="hover:text-primary transition-colors"
             >
               Book a Chair

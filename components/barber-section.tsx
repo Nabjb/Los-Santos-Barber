@@ -122,13 +122,13 @@ export function BarberSection() {
 
             <div className="flex gap-3 flex-wrap">
               <a
-                href="#"
+                href="https://lossantosbarberz.setmore.com/"
                 className="inline-flex items-center justify-center rounded-md border-2 border-border bg-primary/90 px-5 py-3 text-sm font-semibold text-primary-foreground shadow-[3px_3px_0_rgba(0,0,0,0.35)] hover:bg-primary transition-colors"
               >
                 Book a Chair with Fahed
               </a>
               <a
-                href="#"
+                href="https://lossantosbarberz.setmore.com/"
                 className="inline-flex items-center justify-center rounded-md border-2 border-dashed border-border px-5 py-3 text-sm font-semibold hover:border-primary/60 hover:text-primary transition-colors"
               >
                 See the Chair List

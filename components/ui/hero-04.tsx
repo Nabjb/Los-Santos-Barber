@@ -2,6 +2,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowDownRight } from "@aliimam/icons";
 import { Button } from "@/components/ui/button";
@@ -17,7 +18,7 @@ export function HeroSection04() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm absolute -top-4 left-20 font-medium tracking-wider"
           >
-            EST. 2015
+            EST. 2023
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
@@ -133,8 +134,10 @@ export function HeroSection04() {
           transition={{ duration: 0.5, delay: 1.7, type: "spring", stiffness: 200 }}
           className="flex justify-center pt-4 md:pt-6"
         >
-          <Button size={"lg"} className="w-full max-w-xs">
-            Book Appointment
+          <Button asChild size={"lg"} className="w-full max-w-xs">
+            <Link href="https://lossantosbarberz.setmore.com/" target="_blank" rel="noreferrer">
+              Book Appointment
+            </Link>
           </Button>
         </motion.div>
         <motion.div
