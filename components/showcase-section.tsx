@@ -5,13 +5,13 @@ import React from "react";
 import { ZoomParallax } from "@/components/ui/zoom-parallax";
 
 const showcaseImages = [
-  { src: "/showcase8.jpeg", alt: "Showcase 8" },
-  { src: "/showcase9.jpeg", alt: "Showcase 9" },
-  { src: "/showcase10.jpeg", alt: "Showcase 10" },
-  { src: "/showcase11.jpeg", alt: "Showcase 11" },
-  { src: "/showcase12.jpeg", alt: "Showcase 12" },
-  { src: "/showcase13.jpeg", alt: "Showcase 13" },
-  { src: "/showcase14.jpeg", alt: "Showcase 14" },
+  { src: "/showcase8.jpeg", alt: "Los Santos Barbershop - Premium haircut and grooming service in Nicosia" },
+  { src: "/showcase9.jpeg", alt: "Expert barber styling at Los Santos Barbershop, Nicosia" },
+  { src: "/showcase10.jpeg", alt: "Professional beard grooming service at Los Santos Barbershop" },
+  { src: "/showcase11.jpeg", alt: "Classic men's haircut at Los Santos Barbershop, Cyprus" },
+  { src: "/showcase12.jpeg", alt: "Premium barbering services at Los Santos Barbershop in Nicosia" },
+  { src: "/showcase13.jpeg", alt: "Traditional barbershop experience at Los Santos, Nicosia" },
+  { src: "/showcase14.jpeg", alt: "Los Santos Barbershop - Best barbershop in Nicosia, Cyprus" },
 ];
 
 export function ShowcaseSection() {
