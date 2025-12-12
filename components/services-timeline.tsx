@@ -54,10 +54,10 @@ export function ServicesTimeline() {
       <div className="mx-auto max-w-7xl relative z-20 px-6">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           className="mb-16 md:mb-24"
         >
           <p className="text-sm uppercase tracking-wider text-muted-foreground mb-4">
@@ -78,11 +78,18 @@ export function ServicesTimeline() {
             return (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ 
+                  duration: 0.4, 
+                  delay: index * 0.1,
+                  ease: "easeOut"
+                }}
+                whileHover={{ 
+                  y: -8, 
+                  transition: { duration: 0.2 } 
+                }}
                 className="group relative rounded-xl p-8 md:p-10 border-2 border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden"
                 style={{
                   backgroundImage: `url(${service.backgroundImage})`,
