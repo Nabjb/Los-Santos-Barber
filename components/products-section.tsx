@@ -6,13 +6,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ProductSlider } from "@/components/ui/product-slider";
 
-type Category = "nishman" | "arren";
+type Category = "nishman" | "arren" | "london";
 
 interface Product {
   id: string;
   name: string;
   image: string;
   description?: string;
+  price?: string;
 }
 
 const products: Record<Category, Product[]> = {
@@ -23,13 +24,7 @@ const products: Record<Category, Product[]> = {
       image: "/products/nishman1.png",
       description:
         "Ultra strong matte wax for maximum hold and long-lasting shape.",
-    },
-    {
-      id: "nishman2",
-      name: "M5 Fibre Hair Sculpting Paste",
-      image: "/products/nishman2.png",
-      description:
-        "Matte fiber paste that builds texture and strong hold with a natural finish.",
+      price: "€13",
     },
     {
       id: "nishman3",
@@ -37,6 +32,7 @@ const products: Record<Category, Product[]> = {
       image: "/products/nishman3.png",
       description:
         "Strong-hold matte styling paste that shapes hair easily without weighing it down.",
+      price: "€13",
     },
     {
       id: "nishman4",
@@ -44,6 +40,7 @@ const products: Record<Category, Product[]> = {
       image: "/products/nishman4.png",
       description:
         'Flexible matte paste that gives a textured, "mess up" style with light to medium hold.',
+      price: "€13",
     },
     {
       id: "nishman5",
@@ -51,13 +48,7 @@ const products: Record<Category, Product[]> = {
       image: "/products/nishman5.png",
       description:
         "Easy-to-apply pliable matte wax with Inca Inchi for strong, healthy-looking hold.",
-    },
-    {
-      id: "nishman6",
-      name: "S5 Spider Wax (Keratin)",
-      image: "/products/nishman6.png",
-      description:
-        "Elastic spider-web wax with keratin that delivers ultra-strong hold, high texture, and long-lasting definition.",
+      price: "€13",
     },
     {
       id: "nishman7",
@@ -65,6 +56,7 @@ const products: Record<Category, Product[]> = {
       image: "/products/nishman7.png",
       description:
         "Keratin-infused matte clay wax for strong hold, volume and natural texture.",
+      price: "€13",
     },
     {
       id: "nishman8",
@@ -72,6 +64,7 @@ const products: Record<Category, Product[]> = {
       image: "/products/nishman8.png",
       description:
         "Lightweight styling powder that transforms into a creamy matte wax to boost volume and texture with light, non-greasy hold.",
+      price: "€10",
     },
   ],
   arren: [
@@ -81,6 +74,7 @@ const products: Record<Category, Product[]> = {
       image: "/products/arren1.png",
       description:
         "Super-strong hold hairspray that locks your style in place and fights frizz all day.",
+      price: "€12",
     },
     {
       id: "arren2",
@@ -88,6 +82,7 @@ const products: Record<Category, Product[]> = {
       image: "/products/arren2.png",
       description:
         "Strong-hold matte clay that adds texture and shape with lightweight, residue-free styling.",
+      price: "€15",
     },
     {
       id: "arren3",
@@ -95,6 +90,17 @@ const products: Record<Category, Product[]> = {
       image: "/products/arren3.png",
       description:
         "Extra-strong hold pomade with low shine and no residue for precise, long-lasting styling.",
+      price: "€15",
+    },
+  ],
+  london: [
+    {
+      id: "london1",
+      name: "The London Grooming Company Sea Salt Spray",
+      image: "/products/london1.png",
+      description:
+        "Water-based sea salt spray that boosts volume, texture and control for a raw, beach-textured, matte finish look.",
+      price: "€20",
     },
   ],
 };
@@ -134,7 +140,7 @@ export function ProductsSection() {
 
         {/* Category Selection */}
         {!selectedCategory ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
             <motion.button
               onClick={() => setSelectedCategory("nishman")}
               className="group relative rounded-2xl border-2 border-border p-8 md:p-12 hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden h-full min-h-[300px] md:min-h-[400px]"
@@ -196,6 +202,37 @@ export function ProductsSection() {
                 </div>
               </div>
             </motion.button>
+
+            <motion.button
+              onClick={() => setSelectedCategory("london")}
+              className="group relative rounded-2xl border-2 border-border p-8 md:p-12 hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden h-full min-h-[300px] md:min-h-[400px]"
+              style={{
+                backgroundImage: "url(/products/london_grooming_background.webp)",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+              whileHover={{ y: -8 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              {/* Dark Overlay */}
+              <div className="absolute inset-0 bg-black/60 group-hover:bg-black/70 transition-colors duration-300" />
+              
+              {/* Content */}
+              <div className="relative z-10 h-full flex flex-col justify-between">
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-bold uppercase mb-4 tracking-tight text-white">
+                    The London Grooming Company
+                  </h3>
+                  <p className="text-sm md:text-base text-white/90 font-mono mb-6">
+                    {products.london.length} premium product{products.london.length !== 1 ? "s" : ""}
+                  </p>
+                </div>
+                <div className="flex items-center gap-2 text-white font-semibold">
+                  <span>Explore</span>
+                  <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </motion.button>
           </div>
         ) : (
           <AnimatePresence mode="wait">
@@ -215,7 +252,12 @@ export function ProductsSection() {
                   <span>Back to Categories</span>
                 </button>
                 <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tight">
-                  {selectedCategory === "nishman" ? "Nishman" : "Arren"} Products
+                  {selectedCategory === "nishman"
+                    ? "Nishman"
+                    : selectedCategory === "arren"
+                    ? "Arren"
+                    : "The London Grooming Company"}{" "}
+                  Products
                 </h3>
               </div>
               <ProductSlider products={products[selectedCategory]} />

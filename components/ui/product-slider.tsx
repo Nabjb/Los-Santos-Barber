@@ -11,6 +11,7 @@ interface Product {
   name: string;
   image: string;
   description?: string;
+  price?: string;
 }
 
 interface ProductSliderProps {
@@ -92,9 +93,14 @@ export function ProductSlider({ products }: ProductSliderProps) {
             {currentProduct.name}
           </h4>
           {currentProduct.description && (
-            <p className="text-sm md:text-base text-muted-foreground font-mono max-w-xl mx-auto">
+            <p className="text-sm md:text-base text-muted-foreground font-mono max-w-xl mx-auto mb-3">
               {currentProduct.description}
             </p>
+          )}
+          {currentProduct.price && (
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary text-primary-foreground font-bold text-lg">
+              {currentProduct.price}
+            </div>
           )}
         </div>
 
